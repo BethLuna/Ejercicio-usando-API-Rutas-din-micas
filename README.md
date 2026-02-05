@@ -1,3 +1,4 @@
+Este trabajo consiste en realizar un menú de pokemones jalando los datos desde la API "POKEAPI" utilizando rutas dinamicas, así obteniendo datos como las imagenes, nombre, tipo y id.
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
