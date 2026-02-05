@@ -12,8 +12,8 @@ async function getPokemonName(id: number): Promise<string> {
     const res = await fetch(
       `https://pokeapi.co/api/v2/pokemon/${id}`,
       { 
-        cache: "force-cache", 
-        next: { revalidate: 3600 } 
+        cache: "force-cache",
+        next: { revalidate: 3600 }
       }
     );
 
@@ -39,18 +39,26 @@ export default async function PokesLayout({
   );
 
   return (
-    <div className="min-h-screen bg-pink-950/55">
-      <nav className="bg-pink-950 border-b border-b-purple-50 p-4 sticky top-0 z-10 shadow-lg">
-        <div className="flex flex-wrap gap-2 justify-center">
-          {pokemonNames.map(({ id, name }) => (
-            <Link
-              key={id}
-              href={`/pokes/${id}`}
-              className="bg-gray-700/50 hover:bg-rose-300 text-white px-4 py-2 rounded-md text-sm font-medium transition-all hover:scale-105 capitalize"
-            >
-              {name}
-            </Link>
-          ))}
+    <div className="min-h-screen bg-slate-900">
+      <nav className="bg-gray-800 border-b border-gray-700 sticky top-0 z-10 shadow-lg">
+        
+        <div className="lg:hidden px-4 py-2 border-b border-gray-700">
+          <h2 className="text-white text-center font-bold">PokeTrabajo</h2>
+        </div>
+
+        <div className="overflow-x-auto lg:overflow-x-visible">
+          <div className="flex lg:flex-wrap gap-2 p-4 justify-start lg:justify-center min-w-max lg:min-w-0">
+            {pokemonNames.map(({ id, name }) => (
+              <Link
+                key={id}
+                href={`/pokes/${id}`}
+                className="bg-gray-700 hover:bg-gray-600 text-white px-3 py-2 lg:px-4 rounded-md text-xs sm:text-sm font-medium transition-all hover:scale-105 capitalize whitespace-nowrap flex-shrink-0"
+              >
+                <span className="hidden sm:inline">{name}</span>
+                <span className="sm:hidden">#{id}</span>
+              </Link>
+            ))}
+          </div>
         </div>
       </nav>
       <main>
